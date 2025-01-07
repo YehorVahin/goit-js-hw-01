@@ -1,30 +1,60 @@
 <?php
-$name = $_POST['name'];
-$email = $_POST['email'];
-$phone = $_POST['phone'];
-$type = $_POST['type'];
+ use PHPMailer\PHPMailer\PHPMailer;
+ use PHPMailer\PHPMailer\Exception;
 
-$name = htmlspecialchars($name);
-$email = htmlspecialchars($email);
-$phone = htmlspecialchars($phone);
-$type = htmlspecialchars($type);
+ require'PHPMailer/src/Exception.php';
+ require'PHPMailer/src/PHPMailer.php';
 
-$name = trim($name);
-$email = trim($email);
-$phone = trim($phone);
-$type = trim($type);
+ $mail = new PHPMailer(true);
+ $mail->CharSet = "UTF-8";
+//  $mail->setLanguage('eng', 'PHPMailer/language/');
+ $mail->isHTML(true);
 
-mail("yehor.vahin@gmail.com", "Website application", "Name:".$fio.", E-mail: ".$email.", Phone: ".$phone.", Type: ".$type.", From: example2@mail.ru \r\n");
-if (mail("yehor.vahin@gmail.com", "Website application", "Name:".$fio.", E-mail: ".$emailю.", Phone: ".$phone.", Type: ".$type.", From: example2@mail.ru \r\n"))
- {
-    function goback()
-{
-    header("Location: {$_SERVER['HTTP_REFERER']}");
-    exit;
-}
-  
-goback();
-} else {
-    echo "при отправке сообщения возникли ошибки";
-}
+$name = $_POST["name"];
+$email = $_POST["email"];
+$phone = $_POST["phone"];
+$type = $_POST["type"];
+
+$body = $name .''. $email .''. $phone .''. $type;
+
+
+
+
+
+
+
+
+
+//  $mail->setFrom('davyjohns322@gmail.com');
+  $mail->addAddress('yehor.vahin@gmail.com');
+  $mail->Subject = 'Новая заявка с сайта';
+
+//  $body = '<h1>Congratulations</h1>';
+
+//  if (trim(!empty($_POST['name']))) {
+//     $body.='<p><strong>E-mail:</strong> '.$_POST['name'].'</p>';
+//  }
+//  if (trim(!empty($_POST['phone']))) {
+//     $body.='<p><strong>E-mail:</strong> '.$_POST['phone'].'</p>';
+//  }
+//  if (trim(!empty($_POST['email']))) {
+//     $body.='<p><strong>E-mail:</strong> '.$_POST['email'].'</p>';
+//  }
+//  if (trim(!empty($_POST['type']))) {
+//     $body.='<p><strong>E-mail:</strong> '.$_POST['type'].'</p>';
+//  }
+
+  $mail->Body = $body;
+
+  $mail->send();
+
+//  if (!$mail->send()) {
+//     $message = 'Error';
+//  }else {
+//     $message = 'Succesful';
+//  }
+//  $response = ['message' => $message];
+
+//  header('Content-type: application/json');
+//  echo json_encode($response);
 ?>

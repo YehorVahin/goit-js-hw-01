@@ -49,22 +49,22 @@
                 <img src="img/logo.png" alt="" />
               </a>
             </div>
-            <nav class="menu">
+            <nav class="menu" id="menu">
               <div class="header__btn-menu">
                 <span class="icon-bars"></span>
               </div>
               <ul>
-                <li><a href="#">Main</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contacts</a></li>
+                <li><a href="#main__slider">Main</a></li>
+                <li><a href="#about">About us</a></li>
+                <li><a href="#service">Services</a></li>
+                <li><a href="#contacts">Contacts</a></li>
               </ul>
             </nav>
           </div>
         </div>
       </div>
     </header>
-     <section class="slider">
+     <section class="slider" id="main__slider">
       <div class="container">
         <div class="slider__inner">
           <div class="slider__item">
@@ -122,7 +122,7 @@
       </div>
     </section>
     
-    <section class="service">
+    <section class="service" id="service">
       <div class="container">
         <div class="service__top">
           <div class="service__title-box">
@@ -191,8 +191,8 @@
         </div>
       </div>
     </section>
-    <!--
-    <section class="about">
+    
+    <section class="about" id="about">
       <div class="container">
         <div class="about__inner">
           <div class="about__title">О компании</div>
@@ -207,6 +207,7 @@
         </div>
       </div>
     </section>
+    
     <section class="form">
       <div class="container">
         <div class="form__inner">
@@ -261,6 +262,7 @@
         </div>
       </div>
     </section>
+    
     <section class="advantages">
       <div class="container">
         <div class="advantages__inner">
@@ -294,6 +296,7 @@
         </div>
       </div>
     </section>
+    
     <section class="news">
       <div class="container">
         <div class="news__top">
@@ -391,11 +394,12 @@
         </div>
       </div>
     </section>
+    
     <footer class="footer">
       <div class="footer__content">
         <div class="container">
           <div class="footer__inner">
-            <div class="footer__info">
+            <div class="footer__info" id="contacts">
               <div class="footer__title">Комплексное закрытие предприятия</div>
               <div class="footer__text">
                 Полное прекращение существования юридического лица с сохранением
@@ -417,7 +421,6 @@
             <div class="footer__map">
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2540.12439089438!2d30.367110699999994!3d50.4574083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cc919501b4ef%3A0x71a476f68f4c8246!2z0YPQuy4g0KTQtdC-0LTQvtGA0Ysg0J_Rg9GI0LjQvdC-0LksIDEzLCDQmtC40LXQsiwgMDIwMDA!5e0!3m2!1sru!2sua!4v1736109022850!5m2!1sru!2sua"
                 height="250px"
-                width="630px"
                 style="border: 0"
                 allowfullscreen=""
                 loading="lazy"
@@ -434,23 +437,29 @@
           </div>
         </div>
       </div>
-    </footer> -->
+    </footer> 
 
     <div id="modal">
-      <form action="php/send.php" method="post">
-        <input type="text" name="name" placeholder="Name" required>
-        <input type="text" name="phone" placeholder="Phone number" required>
-        <input type="text" name="email" placeholder="E-mail" required>
-        <input type="text" name="type" placeholder="Type of business" required>
-        <select class="modal__select">
+      <form action="send.php" id="form" class="form__body" method="post">
+        <input type="text" name="name" placeholder="Name" class="name _req">
+        <input type="text" name="phone" placeholder="Phone number" class="phone _req" data-reg="^((\+3|8|0)+([0-9]){10})$">
+        <input type="text" name="email" placeholder="E-mail" class="mail _req _email" data-reg="^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$">
+        <input type="text" name="type" placeholder="Type of business" class="type">
+        <select class="modal__select" name="services">
           <option>Services</option>
           <option>SMM</option>
           <option>Target</option>
           <option>SEO</option>
           <option>Web-design</option>
         </select>
+      <div class="form__btns">
         <input type="reset" value="Reset">
         <input type="submit" value="Send">
+      </div>
+      <div class="form__agreement">
+        <input type="checkbox" name="agreement" id="agreement" checked>
+        <label for="agreement"><span>Даю згоду на обробку моїх персональних даних згідно з умовами</span></label>
+      </div>
       </form>
       
     </div>
@@ -459,5 +468,15 @@
     <script src="js/slick.min.js"></script>
     <script src="js/jquery.formstyler.min.js"></script>
     <script src="js/main.js"></script>
+    <!-- <script type="text/javascript">
+      $(document).ready(function(){
+         $("#menu").on("click","a", function (event) {
+             event.preventDefault();
+             var id  = $(this).attr('href'),
+                 top = $(id).offset().top;
+             $('body,html').animate({scrollTop: top}, 1200);
+         });
+     });
+     </script> -->
   </body>
 </html>
