@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="css/jquery.formstyler.css" />
     <link rel="stylesheet" href="css/jquery.formstyler.theme.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="css/media.css" />
   </head>
   <body>
     <header class="header">
@@ -64,7 +64,7 @@
         </div>
       </div>
     </header>
-     <section class="slider" id="main__slider">
+    <section class="slider" id="main__slider">
       <div class="container">
         <div class="slider__inner">
           <div class="slider__item">
@@ -121,7 +121,7 @@
         </div>
       </div>
     </section>
-    
+
     <section class="service" id="service">
       <div class="container">
         <div class="service__top">
@@ -191,7 +191,7 @@
         </div>
       </div>
     </section>
-    
+
     <section class="about" id="about">
       <div class="container">
         <div class="about__inner">
@@ -207,7 +207,7 @@
         </div>
       </div>
     </section>
-    
+
     <section class="form">
       <div class="container">
         <div class="form__inner">
@@ -262,7 +262,7 @@
         </div>
       </div>
     </section>
-    
+
     <section class="advantages">
       <div class="container">
         <div class="advantages__inner">
@@ -296,7 +296,7 @@
         </div>
       </div>
     </section>
-    
+
     <section class="news">
       <div class="container">
         <div class="news__top">
@@ -394,7 +394,7 @@
         </div>
       </div>
     </section>
-    
+
     <footer class="footer">
       <div class="footer__content">
         <div class="container">
@@ -409,17 +409,29 @@
                 data-fancybox
                 data-src="#modal"
                 class="footer__btn"
-                href="javascript:;">
+                href="javascript:;"
+              >
                 Free consultation
               </a>
               <ul class="footer__list">
-                <li><a class="footer__phone" href="tel:380935115785">+38 (093) 511 57 85</a></li>
-                <li><a class="footer__mail" href="#">yehor.vahin@gmail.com</a></li>
-                <li><a class="footer__adress" href="#">Kyiv, Pushinoy street, 13</a></li>
+                <li>
+                  <a class="footer__phone" href="tel:380935115785"
+                    >+38 (093) 511 57 85</a
+                  >
+                </li>
+                <li>
+                  <a class="footer__mail" href="#">yehor.vahin@gmail.com</a>
+                </li>
+                <li>
+                  <a class="footer__adress" href="#"
+                    >Kyiv, Pushinoy street, 13</a
+                  >
+                </li>
               </ul>
             </div>
             <div class="footer__map">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2540.12439089438!2d30.367110699999994!3d50.4574083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cc919501b4ef%3A0x71a476f68f4c8246!2z0YPQuy4g0KTQtdC-0LTQvtGA0Ysg0J_Rg9GI0LjQvdC-0LksIDEzLCDQmtC40LXQsiwgMDIwMDA!5e0!3m2!1sru!2sua!4v1736109022850!5m2!1sru!2sua"
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2540.12439089438!2d30.367110699999994!3d50.4574083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cc919501b4ef%3A0x71a476f68f4c8246!2z0YPQuy4g0KTQtdC-0LTQvtGA0Ysg0J_Rg9GI0LjQvdC-0LksIDEzLCDQmtC40LXQsiwgMDIwMDA!5e0!3m2!1sru!2sua!4v1736109022850!5m2!1sru!2sua"
                 height="250px"
                 style="border: 0"
                 allowfullscreen=""
@@ -437,14 +449,31 @@
           </div>
         </div>
       </div>
-    </footer> 
+    </footer>
 
     <div id="modal">
-      <form action="send.php" id="form" class="form__body" method="post">
-        <input type="text" name="name" placeholder="Name" class="name _req">
-        <input type="text" name="phone" placeholder="Phone number" class="phone _req" data-reg="^((\+3|8|0)+([0-9]){10})$">
-        <input type="text" name="email" placeholder="E-mail" class="mail _req _email" data-reg="^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$">
-        <input type="text" name="type" placeholder="Type of business" class="type">
+      <form action="php/send.php" id="form" class="form__body" method="post">
+        <input type="text" name="name" placeholder="Name" class="name _req" />
+        <input
+          type="text"
+          name="phone"
+          placeholder="Phone number"
+          class="phone _req"
+          
+        />
+        <input
+          type="text"
+          name="email"
+          placeholder="E-mail"
+          class="email _req _email"
+          
+        />
+        <input
+          type="text"
+          name="type"
+          placeholder="Type of business"
+          class="type"
+        />
         <select class="modal__select" name="services">
           <option>Services</option>
           <option>SMM</option>
@@ -452,23 +481,27 @@
           <option>SEO</option>
           <option>Web-design</option>
         </select>
-      <div class="form__btns">
-        <input type="reset" value="Reset">
-        <input type="submit" value="Send">
-      </div>
-      <div class="form__agreement">
-        <input type="checkbox" name="agreement" id="agreement" checked>
-        <label for="agreement"><span>Даю згоду на обробку моїх персональних даних згідно з умовами</span></label>
-      </div>
+        <div class="form__btns">
+          <input type="reset" value="Reset" />
+          <input type="submit" value="Send" />
+        </div>
+        <div class="form__agreement">
+          <input type="checkbox" name="agreement" id="agreement" checked />
+          <label for="agreement"
+            ><span
+              >Даю згоду на обробку моїх персональних даних згідно з
+              умовами</span
+            ></label
+          >
+        </div>
       </form>
-      
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="js/jquery.fancybox.min.js"></script>
     <script src="js/slick.min.js"></script>
     <script src="js/jquery.formstyler.min.js"></script>
     <script src="js/main.js"></script>
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
       $(document).ready(function(){
          $("#menu").on("click","a", function (event) {
              event.preventDefault();
@@ -477,6 +510,6 @@
              $('body,html').animate({scrollTop: top}, 1200);
          });
      });
-     </script> -->
+     </script>
   </body>
 </html>
