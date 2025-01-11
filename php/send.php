@@ -1,70 +1,46 @@
 <?php
-// //Import PHPMailer classes into the global namespace
-// //These must be at the top of your script, not inside a function
-// use PHPMailer\PHPMailer\PHPMailer;
-// use PHPMailer\PHPMailer\SMTP;
-// use PHPMailer\PHPMailer\Exception;
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
 
-// require 'PHPMailer/src/Exception.php';
-// require 'PHPMailer/src/PHPMailer.php';
-// require 'PHPMailer/src/SMTP.php';
+    require 'PHPMailer/src/PHPMailer.php';
+    require 'PHPMailer/src/Exception.php';
 
-// //Create an instance; passing `true` enables exceptions
-// $mail = new PHPMailer(true);
+    $mail = new PHPMailer(true);
+    $mail->CharSet = 'UTF-8';
+    $mail->setLanguage('ru', 'PHPMailer/langauge/');
+    $mail->isHTML(true);
 
-// try {
-//     //Server settings
-//     $mail->isSMTP();                                          //Send using SMTP
-//     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-//     $mail->SMTPAuth   = true;                                 //Enable SMTP authentication
-//     $mail->Username   = '';                                   //SMTP username
-//     $mail->Password   = '';                                   //SMTP password
-//     $mail->SMTPSecure = 'TLS';                                //Enable implicit TLS encryption
-//     $mail->Port       = 587;                                  //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    $mail->setFrom('davyjohns322@gmail.com', 'Фрилансер по жизни');
+    $mail->addAddress('yehor.vahin@gmail.com');
+    $mail->Subject = 'Form from Web-Site';
 
-//     //Recipients
-//     $mail->setFrom('davyjohns322@gmail.com', 'form');
-//     $mail->addAddress('yehor.vahin@gmail.com');     //Add a recipient
-//     $body = '<p>Email: '.$_POST['email'].'</p>' . '<p>User name: '.$_POST['name'].'</p>';
+    $body = '<h1>New form from Web-Site!</h1>';
 
-//     //Content
-//     $mail->isHTML(true);                                  //Set email format to HTML
-//     $mail->CharSet = 'UTF-8';
-//     $mail->Subject = 'Message';
-//     $mail->Body    = $body;
+    if (trim(!empty($_POST['name']))) {
+        $body.='<p><strong>Name:</strong>'.$_POST['name'].'</p>';
+    }
+    if (trim(!empty($_POST['email']))) {
+        $body.='<p><strong>Email:</strong>'.$_POST['email'].'</p>';
+    }
+    if (trim(!empty($_POST['phone']))) {
+        $body.='<p><strong>Phone number:</strong>'.$_POST['phone'].'</p>';
+    }
+    if (trim(!empty($_POST['type']))) {
+        $body.='<p><strong>Type of bussines:</strong>'.$_POST['type'].'</p>';
+    }
+    if (trim(!empty($_POST['message']))) {
+        $body.='<p><strong>Message:</strong>'.$_POST['message'].'</p>';
+    }
+    $mail->Body = $body;
 
-//     $mail->send();
-//     echo 'Message has been sent';
-// } catch (Exception $e) {
-//     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-// }
+    if (!$mail->send()) {
+        $message = 'Error';
+    }else {
+        $message = 'Successful';
+    }
 
-use PHPMailer\PHPMailer\PHPMailer;
+    $response = ['message'=> $message];
 
-$name = $_POST['name'];
-$email = $_POST['email'];
-$phone = $_POST['phone'];
- 
-$mail = new PHPMailer(true);
-$mail->isSMTP();
-$mail->Host = 'test.local';
-$mail->SMTPAuth = true;
-$mail->Username = 'davyjohns322@gmail.com';
-$mail->Password = '';
-$mail->SMTPSecure = 'tls';
-$mail->Port = 587;
- 
-$mail->setFrom($email, $name);
-$mail->addAddress('yehor.vahin@gmail.com');
-$mail->isHTML(true);
- 
-$mail->Subject = 'Сообщение с формы обратной связи';
-$mail->Body    = "От: $name <br> Email: $email <br> Сообщение: $phone";
- 
-if(!$mail->send()) {
-    echo 'Ошибка при отправке сообщения.';
-    echo 'Mailer Error: ' . $mail->ErrorInfo;
-} else {
-    echo 'Сообщение успешно отправлено!';
-}
+    header('Content-type: application/json');
+    echo json_encode($response);
 ?>

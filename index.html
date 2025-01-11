@@ -420,10 +420,10 @@
                   >
                 </li>
                 <li>
-                  <a class="footer__mail" href="#">yehor.vahin@gmail.com</a>
+                  <a class="footer__mail" href="mailto:yehor.vahin@gmail.com">yehor.vahin@gmail.com</a>
                 </li>
                 <li>
-                  <a class="footer__adress" href="#"
+                  <a class="footer__adress" target="_blank" href="https://www.google.com/maps/place/%D1%83%D0%BB.+%D0%A4%D0%B5%D0%BE%D0%B4%D0%BE%D1%80%D1%8B+%D0%9F%D1%83%D1%88%D0%B8%D0%BD%D0%BE%D0%B9,+13,+%D0%9A%D0%B8%D0%B5%D0%B2,+02000/@50.457408,30.367111,15z/data=!4m6!3m5!1s0x40d4cc919501b4ef:0x71a476f68f4c8246!8m2!3d50.4574083!4d30.3671107!16s%2Fg%2F1txc5kd7?hl=ru&entry=ttu&g_ep=EgoyMDI1MDEwNy4wIKXMDSoASAFQAw%3D%3D"
                     >Kyiv, Pushinoy street, 13</a
                   >
                 </li>
@@ -452,47 +452,26 @@
     </footer>
 
     <div id="modal">
-      <form action="php/send.php" id="form" class="form__body" method="post">
-        <input type="text" name="name" placeholder="Name" class="name _req" />
-        <input
-          type="text"
-          name="phone"
-          placeholder="Phone number"
-          class="phone _req"
-          
-        />
-        <input
-          type="text"
-          name="email"
-          placeholder="E-mail"
-          class="email _req _email"
-          
-        />
-        <input
-          type="text"
-          name="type"
-          placeholder="Type of business"
-          class="type"
-        />
-        <select class="modal__select" name="services">
-          <option>Services</option>
-          <option>SMM</option>
-          <option>Target</option>
-          <option>SEO</option>
-          <option>Web-design</option>
-        </select>
+      <form action="#" id="form" class="form">
+        <label for="formName">Name*</label>
+        <input id="formName" type="text" name="name" class="name form__input _req"/>
+        <label for="formPhone">Phone number*</label>
+        <input id="formPhone" type="text" name="phone" class="phone form__input _req"/>
+        <label for="formEmail">E-mail*</label>
+        <input id="formEmail" type="text" name="email" class="email form__input _req _email"/>
+        <label for="formType">Type of business*</label>
+        <input id="formType" type="text" name="type" class="type form__input _req"/>
+        <label for="formMassage">Services*</label>
+        <textarea name="message" class="message" id="modal__text" placeholder="Describe services you want"></textarea>
         <div class="form__btns">
           <input type="reset" value="Reset" />
           <input type="submit" value="Send" />
         </div>
         <div class="form__agreement">
-          <input type="checkbox" name="agreement" id="agreement" checked />
+          <input type="checkbox" name="agreement" id="agreement" checked/>
           <label for="agreement"
-            ><span
-              >Даю згоду на обробку моїх персональних даних згідно з
-              умовами</span
-            ></label
-          >
+            >I consent to the processing of my personal data in accordance with the <span
+            ><a href="#">Terms</a></span>.</label>
         </div>
       </form>
     </div>
