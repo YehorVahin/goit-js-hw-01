@@ -452,15 +452,15 @@
     </footer>
 
     <div id="modal">
-      <form action="#" id="form" class="form">
+      <form action="#" id="form" name="form" class="form">
         <label for="formName">Name*</label>
-        <input id="formName" type="text" name="name" class="name form__input _req"/>
+        <input id="formName" type="text" name="name" class="name form__input _req" required/>
         <label for="formPhone">Phone number*</label>
-        <input id="formPhone" type="text" name="phone" class="phone form__input _req"/>
+        <input id="formPhone" type="text" name="phone" class="phone form__input _req" required/>
         <label for="formEmail">E-mail*</label>
-        <input id="formEmail" type="text" name="email" class="email form__input _req _email"/>
+        <input id="formEmail" type="text" name="email" class="email form__input _req _email" required/>
         <label for="formType">Type of business*</label>
-        <input id="formType" type="text" name="type" class="type form__input _req"/>
+        <input id="formType" type="text" name="type" class="type form__input _req" required/>
         <label for="formMassage">Services*</label>
         <textarea name="message" class="message" id="modal__text" placeholder="Describe services you want"></textarea>
         <div class="form__btns">
