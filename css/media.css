@@ -164,6 +164,9 @@
         margin: 0;
         gap: 10%;
     }
+    .agreement__text{
+        float: left;
+    }
 }
 @media(max-width: 414px){
     .slider__title{
