@@ -160,6 +160,10 @@
     .news__slider-inner .slick-btn{
         bottom: -90px;
     }
+    .form__agreement{
+        margin: 0;
+        gap: 10%;
+    }
 }
 @media(max-width: 414px){
     .slider__title{
