@@ -16,20 +16,17 @@
 
     $body = '<h1>New form from Web-Site!</h1>';
 
-    if (trim(!empty($_POST['name']))) {
-        $body.='<p><strong>Name:</strong>'.$_POST['name'].'</p>';
+    if (trim(!empty($_POST['names']))) {
+        $body.='<p><strong>Name:</strong>'.$_POST['names'].'</p>';
     }
-    if (trim(!empty($_POST['email']))) {
-        $body.='<p><strong>Email:</strong>'.$_POST['email'].'</p>';
+    if (trim(!empty($_POST['emails']))) {
+        $body.='<p><strong>Email:</strong>'.$_POST['emails'].'</p>';
     }
-    if (trim(!empty($_POST['phone']))) {
-        $body.='<p><strong>Phone number:</strong>'.$_POST['phone'].'</p>';
+    if (trim(!empty($_POST['phones']))) {
+        $body.='<p><strong>Phone number:</strong>'.$_POST['phones'].'</p>';
     }
-    if (trim(!empty($_POST['type']))) {
-        $body.='<p><strong>Type of bussines:</strong>'.$_POST['type'].'</p>';
-    }
-    if (trim(!empty($_POST['message']))) {
-        $body.='<p><strong>Message:</strong>'.$_POST['message'].'</p>';
+    if (trim(!empty($_POST['messages']))) {
+        $body.='<p><strong>Message:</strong>'.$_POST['messages'].'</p>';
     }
     $mail->Body = $body;
 
@@ -39,7 +36,7 @@
         $message = 'Successful';
     }
 
-    $response = ['message'=> $message];
+    $response = ['messages'=> $message];
 
     header('Content-type: application/json');
     echo json_encode($response);

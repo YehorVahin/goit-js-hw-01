@@ -168,6 +168,12 @@
     .slider__text{
         font-size: 16px;
     }
+    .lang__ua{
+        display: block;
+    }
+    .lang__eng{
+        display: block;
+    }
 }
 @media(max-width: 400px){
     .header__btn:before{

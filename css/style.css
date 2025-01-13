@@ -29,8 +29,9 @@ header{
 .header__top{
     background-color: #303030;
 }
-.header__btn{
-    float: right;
+
+.header__btn{  
+    float: right;  
     line-height: 36px;
     color: #1b1b1b;
     font-size: 16px;
@@ -50,8 +51,14 @@ header{
     clear: both;
     display: block;
 }
+.lang-ua,
+.lang-eng{
+    margin-left: 20px;
+}
 .header__phone,
-.header__email{
+.header__email,
+.lang-ua,
+.lang-eng{
     color: #cbcacb;
     font-size: 14px;
     letter-spacing: 0.25px;
@@ -764,4 +771,10 @@ header{
 }
 .agreement__text{
     width: 100%;
+}
+.lang__ua{
+    display: none;
+}
+.lang__eng{
+    display: none;
 }
